@@ -2,7 +2,10 @@ import React from 'react';
 import MessageList from './MessageList.jsx';
 import ChannelList from './ChannelList.jsx';
 import MessageBox from './MessageBox.jsx';
+import Login from './Login.jsx';
 import mui from 'material-ui';
+import connectToStores from 'alt/utils/connectToStores';
+import ChatStore from '../stores/ChatStore';
 
 var ThemeManager = new mui.Styles.ThemeManager();
 var Colors = mui.Styles.Colors;
@@ -20,6 +23,14 @@ class App extends React.Component {
 		})
 	}
 
+	static getStores() {
+		return [ChatStore];
+	}
+
+	static getPropsFromStores() {
+		return ChatStore.getState();
+	}
+
 	static childContextTypes = {
 		muiTheme: React.PropTypes.object
 	}
@@ -31,19 +42,31 @@ class App extends React.Component {
 	}
 
 	render(){
+		var view = <Login />
+
+
+		//if(this.props.user) {
+		if(true === true) {
+			view = (
+				<div>
+					<div style={{
+						display: 'flex',
+						flewFlow: 'row wrap',
+						maxWidth: 1200,
+						width: '100%',
+						margin: '30px auto 30px'
+					}}>
+						<ChannelList />
+						<MessageList />
+					</div>
+				</div>
+			)
+		}
+
 		return (
 			<div>
 				<AppBar title="Awesome Chat Application" />
-				<div style={{
-					display: 'flex',
-					flewFlow: 'row wrap',
-					maxWidth: 1200,
-					width: '100%',
-					margin: '30px auto 30px'
-				}}>
-					<ChannelList />
-					<MessageList />
-				</div>
+				{{view}}
 				<MessageBox />
 			</div>
 		);
