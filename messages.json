@@ -1,0 +1,16 @@
+{
+	"messages": {
+		"0": {
+			"message": "Hi there, how are you?",
+			"date": "Wed, 08 Jul 2015 18:47:27 GMT",
+			"author": "Hendrik Swanepoel",
+			"profilePic": "https://avatars.githubusercontent.com/u/273461?v=3"
+		},
+		"1": {
+			"message": "I am fine, and you?",
+			"date": "Wed, 08 Jul 2015 18:47:32 GMT",
+			"author": "Stewart Scott",
+			"profilePic": "https://avatars.githubusercontent.com/u/8905?v=3"
+		}
+	}
+}
